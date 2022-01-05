@@ -1,12 +1,17 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.scss";
 import Nav from "./components/Nav";
+import GameController from "./components/GameController";
+import Footer from "./components/Footer";
 
 function App() {
+  const [name, setName] = useState<String>("Anonymous");
+
   return (
     <div className="App">
-      <Nav />
+      <Nav playerName={name} />
+      <GameController />
+      <Footer />
     </div>
   );
 }
