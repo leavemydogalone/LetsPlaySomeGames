@@ -1,0 +1,9 @@
+@use "variables" as v;
+
+nav {
+  background-color: v.$dark-background-color;
+
+  h2 {
+    color: v.$light-text-color;
+  }
+}
