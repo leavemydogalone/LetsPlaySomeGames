@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.scss";
+
 import Nav from "./components/Nav";
 import GameController from "./components/GameController";
 import Footer from "./components/Footer";

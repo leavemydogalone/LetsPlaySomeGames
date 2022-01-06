@@ -1,0 +1,10 @@
+@use "variables" as v;
+
+footer {
+  background: v.$dark-background-color;
+  color: v.$light-text-color;
+  h2 {
+    padding: 20px;
+    text-align: center;
+  }
+}

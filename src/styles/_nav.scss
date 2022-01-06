@@ -6,4 +6,17 @@ nav {
   h2 {
     color: v.$light-text-color;
   }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .bottom {
+    background: grey;
+    h1 {
+      padding: 10px;
+      text-align: center;
+      color: v.$light-text-color;
+    }
+  }
 }
