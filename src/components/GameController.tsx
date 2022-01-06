@@ -9,8 +9,12 @@ export default function GameController() {
     <MainMenu setScene={setScene} />
   );
 
+  // updates state of sceneComponent with a new level/scene component
+  // based on the scene that is set either through the main menu, level select,
+  // or end of level button (to be added)
+
   useEffect(() => {
-    function renderScene() {
+    function updateSceneComponent() {
       switch (scene) {
         case "Menu":
           setSceneComponent(<MainMenu setScene={setScene} />);
@@ -22,7 +26,7 @@ export default function GameController() {
           break;
       }
     }
-    renderScene();
+    updateSceneComponent();
   }, [scene]);
 
   return (
