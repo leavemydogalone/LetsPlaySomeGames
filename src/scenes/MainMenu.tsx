@@ -1,11 +1,16 @@
 import React from "react";
+import Button from "../components/Button";
 
 export default function MainMenu() {
   return (
-    <div>
-      You have only one choice
-      <br />
-      Play
+    <div className="mainMenu">
+      <h2 className="title">There is only one choice:</h2>
+      <Button
+        text="Play"
+        handleClick={() => {
+          return;
+        }}
+      />
     </div>
   );
 }
