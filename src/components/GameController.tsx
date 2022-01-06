@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import MainMenu from "../scenes/MainMenu";
+import LevelSelect from "../scenes/LevelSelect";
 import { Scene } from "../ts/enums";
 
 export default function GameController() {
@@ -16,7 +16,7 @@ export default function GameController() {
           setSceneComponent(<MainMenu setScene={setScene} />);
           break;
         case "LevelSelect":
-          setSceneComponent(<MainMenu setScene={setScene} />);
+          setSceneComponent(<LevelSelect />);
           break;
         default:
           break;
