@@ -10,7 +10,7 @@ export default function MainMenu({ setScene }: Props) {
   return (
     <div className="mainMenu">
       <h2 className="title">There is only one choice:</h2>
-      <Button text="Play" handleClick={() => setScene(Scene.LevelSelect)} />
+      <Button text="Play" handleClick={() => setScene(Scene.One)} />
     </div>
   );
 }

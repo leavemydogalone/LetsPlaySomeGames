@@ -2,9 +2,10 @@ import React from "react";
 
 type Props = {
   playerName: String;
+  bottomNavText: String;
 };
 
-export default function Nav({ playerName }: Props) {
+export default function Nav({ playerName, bottomNavText }: Props) {
   return (
     <nav className="nav">
       <div className="top">
