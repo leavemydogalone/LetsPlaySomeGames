@@ -10,10 +10,10 @@ export default function LevelOne() {
   const [inputtable, setInputtable] = useState(true);
 
   //   i think it is something to do with this not working correctly
-  function addLetter(input: string): void {
-    const newLetters = [...letters, input];
-    setLetters(newLetters);
-  }
+  //   function addLetter(input: string): void {
+
+  //     setLetters([...letters, input]);
+  //   }
 
   const scriptString =
     "Welcome I know that you are eager to begin, but first I will need you to tell me your name...";
@@ -21,7 +21,7 @@ export default function LevelOne() {
   useEffect(() => {
     for (let i = 1; i < scriptString.length - 1; i++) {
       setTimeout(() => {
-        addLetter(scriptString[i - 1]);
+        setLetters((prevLetters) => [...prevLetters, scriptString[i - 1]]);
       }, i * 200);
       if (i === scriptString.length - 1) setInputtable(true);
       //   console.log(letters);
@@ -39,7 +39,7 @@ export default function LevelOne() {
           // value is set to "" of inputValue after so that
           // the previous letters do not stay in the input element
           onChange={(e) => {
-            addLetter(e.target.value);
+            setLetters([...letters, e.target.value]);
           }}
         />
       )}
