@@ -28,13 +28,14 @@ export default function LevelOne() {
 
   return (
     <div className="levelOne">
+      {/* make letter display its own component. May use the letters throughout the levels */}
       <div className="letterDisplay nameDisplay">
         {letters.map((thing, index) => (
           <>
             <div key={index} className="letter-box">
               {thing}
             </div>
-            {thing === "." && <br key={index + 100} />}
+            {thing === "." && <br key={index * 100} />}
           </>
         ))}
       </div>
