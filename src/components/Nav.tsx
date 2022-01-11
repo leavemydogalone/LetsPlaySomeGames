@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { NameCtx, NameContextInterface } from "../App";
 
 type Props = {
   playerName: String;
@@ -6,6 +7,8 @@ type Props = {
 };
 
 export default function Nav({ playerName, bottomNavText }: Props) {
+  const nameContext = useContext(NameCtx);
+
   return (
     <nav className="nav">
       <div className="top">

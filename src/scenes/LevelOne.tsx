@@ -1,57 +1,74 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import LetterBox from "../components/LetterBox";
+import { NameCtx, NameContextInterface } from "../App";
 
 export default function LevelOne() {
+  const nameContext = React.useContext(NameCtx);
   const [letters, setLetters] = useState<String[]>([]);
-  const [inputValue, setInputValue] = useState<string>("");
-  // setting the value of the input to an empty string after a letter has been
-  // entered will prevent multiple letters from being added in each position
-  // of the letters array
+  // array of strings. Will hold the letters/spaces/punctuation from scriptString
+  // that will be placed in it on a delay so they render over time
+  const [preName, setPreName] = useState<String>("");
 
   const [inputtable, setInputtable] = useState(false);
+  // will spawn render the input box when true
 
   const scriptString =
     "Welcome. I know that you are eager to begin, but first I will need your name.";
 
   useEffect(() => {
+    const timeVariable = 1;
+    // change back to 100
+    // this will determine how slowly the letters of the script will be added to the letters state
+    // and how quickly they will render
+
     for (let i = 1; i < scriptString.length + 1; i++) {
       setTimeout(() => {
         setLetters((prevLetters) => [...prevLetters, scriptString[i - 1]]);
-      }, i * 100);
+      }, i * timeVariable);
     }
+    // sets a delay for adding the letters of the script to the state, which will then render them
+    // smoothly
+
+    setTimeout(() => {
+      setInputtable(true);
+    }, scriptString.length * (timeVariable + 40));
+    // this will spawn the input box after all of the script has been added multiplied by the delay
   }, []);
 
-  useEffect(() => {
-    if (letters.length === scriptString.length) setInputtable(true);
+  function handleNameFirstInput(): void {
+    const letterDisplay: HTMLDivElement | null =
+      document.querySelector(".letterDisplay");
 
-    console.log(letters.length, scriptString.length);
-  }, [letters]);
+    letterDisplay?.classList.add(".fade-out");
+    // then add what to do with the name display
+  }
 
   return (
     <div className="levelOne">
-      {/* make letter display its own component. May use the letters throughout the levels */}
-      <div className="letterDisplay nameDisplay">
-        {letters.map((thing, index) => (
+      <div className="letterDisplay">
+        {letters.map((thing: String, index) => (
           <>
-            <div key={index} className="letter-box">
-              {thing}
-            </div>
+            <LetterBox letter={thing} key={index} />
             {thing === "." && <br key={index * 100} />}
           </>
         ))}
       </div>
 
       {inputtable && (
-        <input
-          className="input"
-          id="levelOneInput"
-          type="text"
-          value={inputValue}
-          // value is set to "" of inputValue after so that
-          // the previous letters do not stay in the input element
-          onChange={(e) => {
-            setLetters([...letters, e.target.value]);
-          }}
-        />
+        <div className="nameInputSection">
+          <div className="nameDisplay">{preName}</div>
+          <input
+            className="input"
+            id="levelOneInput"
+            type="text"
+            value=""
+            // value is set to "" (from inputValue) after so that
+            // the previous letters do not stay in the input element
+            onChange={(e) => {
+              setPreName((prevState) => prevState + e.target.value);
+            }}
+          />
+        </div>
       )}
     </div>
   );
