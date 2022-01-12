@@ -9,3 +9,10 @@ $button-text-color: black;
 
 $regular-font-size: 18px;
 $title-font-size: 40px;
+
+@font-face {
+  font-family: "Odinson";
+  src: url("../fonts/Odinson-224w.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
