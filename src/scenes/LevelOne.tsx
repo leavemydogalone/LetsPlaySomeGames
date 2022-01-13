@@ -43,9 +43,11 @@ export default function LevelOne() {
     // then add what to do with the name display
   }
 
+  const fadeOut = preName ? "fadeOut" : null;
+
   return (
     <div className="levelOne">
-      <div className="letterDisplay">
+      <div className={`letterDisplay ${fadeOut}`}>
         {letters.map((thing: String, index) => (
           <>
             <LetterBox letter={thing} key={index} />
