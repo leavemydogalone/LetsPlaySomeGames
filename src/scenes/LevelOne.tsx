@@ -35,14 +35,6 @@ export default function LevelOne() {
     // this will spawn the input box after all of the script has been added multiplied by the delay
   }, []);
 
-  function handleNameFirstInput(): void {
-    const letterDisplay: HTMLDivElement | null =
-      document.querySelector(".letterDisplay");
-
-    letterDisplay?.classList.add(".fade-out");
-    // then add what to do with the name display
-  }
-
   const fadeOut = preName ? "fadeOut" : null;
 
   return (
@@ -58,7 +50,11 @@ export default function LevelOne() {
 
       {inputtable && (
         <div className="nameInputSection">
-          <div className="nameDisplay">{preName}</div>
+          <div className="nameDisplay">
+            {preName.split("").map((letter: string) => (
+              <span className="nameLetter">{letter}</span>
+            ))}
+          </div>
           <input
             className="input"
             id="levelOneInput"
