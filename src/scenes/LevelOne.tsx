@@ -35,10 +35,19 @@ export default function LevelOne() {
     // this will spawn the input box after all of the script has been added multiplied by the delay
   }, []);
 
+  function handleNameInput(e: React.ChangeEvent<HTMLInputElement>): void {
+    if (preName.length < 4) {
+      setPreName((prevState) => prevState + e.target.value);
+    }
+  }
+
+  const blackOut = preName ? "blackOut" : null;
   const fadeOut = preName ? "fadeOut" : null;
+  // once the first letter of prename is entered then this will create the classname
+  // to fade out the letterDisplay
 
   return (
-    <div className="levelOne">
+    <div className={`levelOne ${blackOut}`}>
       <div className={`letterDisplay ${fadeOut}`}>
         {letters.map((thing: String, index) => (
           <>
@@ -55,17 +64,17 @@ export default function LevelOne() {
               <span className="nameLetter">{letter}</span>
             ))}
           </div>
-          <input
-            className="input"
-            id="levelOneInput"
-            type="text"
-            value=""
-            // value is set to "" (from inputValue) after so that
-            // the previous letters do not stay in the input element
-            onChange={(e) => {
-              setPreName((prevState) => prevState + e.target.value);
-            }}
-          />
+          <form className="nameForm">
+            <input
+              className="input"
+              id="levelOneInput"
+              type="text"
+              value=""
+              // value is set to "" (from inputValue) after so that
+              // the previous letters do not stay in the input element
+              onChange={(e) => handleNameInput(e)}
+            />
+          </form>
         </div>
       )}
     </div>
