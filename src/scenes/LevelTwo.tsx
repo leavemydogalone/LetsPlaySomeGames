@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function LevelTwo() {
-  return <div>level two</div>;
+  return <div className="levelTwo">level two</div>;
 }
