@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import LetterBox from "../components/LetterBox";
 import { NameCtx, NameContextInterface } from "../App";
+import { Scene } from "../ts/enums";
 
-export default function LevelOne() {
+type Props = {
+  setScene: React.Dispatch<React.SetStateAction<Scene>>;
+};
+
+export default function LevelOne({ setScene }: Props) {
   const nameContext = React.useContext(NameCtx);
   const [letters, setLetters] = useState<String[]>([]);
   // array of strings. Will hold the letters/spaces/punctuation from scriptString
@@ -39,6 +44,13 @@ export default function LevelOne() {
     if (preName.length < 4) {
       setPreName((prevState) => prevState + e.target.value);
     }
+    // limits name length to 4 characters
+  }
+
+  function handleNameSubmit(e: React.SyntheticEvent): void {
+    e.preventDefault();
+    nameContext?.setName(preName);
+    setScene(Scene.Two);
   }
 
   const blackOut = preName ? "blackOut" : null;
@@ -64,7 +76,8 @@ export default function LevelOne() {
               <span className="nameLetter">{letter}</span>
             ))}
           </div>
-          <form className="nameForm">
+
+          <form className="nameForm" onSubmit={(e) => handleNameSubmit(e)}>
             <input
               className="input"
               id="levelOneInput"
@@ -74,6 +87,7 @@ export default function LevelOne() {
               // the previous letters do not stay in the input element
               onChange={(e) => handleNameInput(e)}
             />
+            {preName && <button className="nameSubmitButton"></button>}
           </form>
         </div>
       )}
