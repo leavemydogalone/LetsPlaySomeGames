@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { NameCtx, NameContextInterface } from "../App";
 
 type Props = {
@@ -12,7 +12,9 @@ export default function Nav({ playerName, bottomNavText }: Props) {
   return (
     <nav className="nav">
       <div className="top">
-        <h2 className="player">{playerName}</h2>
+        <h2 className={`player ${playerName !== "Anonymous" && "flash"}`}>
+          {playerName}
+        </h2>
         <h2 className="score">0000</h2>
       </div>
 
