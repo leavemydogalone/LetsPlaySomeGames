@@ -10,10 +10,8 @@ type Props = {
 };
 
 export default function GameController({ setBottomNavText }: Props) {
-  const [scene, setScene] = useState<Scene>(Scene.One);
-  const [sceneComponent, setSceneComponent] = useState(
-    <LevelOne setScene={setScene} />
-  );
+  const [scene, setScene] = useState<Scene>(Scene.Two);
+  const [sceneComponent, setSceneComponent] = useState(<LevelTwo />);
 
   // updates state of sceneComponent with a new level/scene component
   // based on the scene that is set either through the main menu, level select,
