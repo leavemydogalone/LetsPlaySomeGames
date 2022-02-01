@@ -1,10 +1,11 @@
-import React { useState } from "react";
+import React, { useState } from "react";
 
 export default function LevelTwo() {
   //   const [mousePositionX, setMousePositionX] = useState<number>(0);
   const [originX, setOriginX] = useState<number>(0);
   const [isDown, setIsDown] = useState(false);
   const [draggerPositionX, setDraggerPositionX] = useState<number>();
+  const [textLoaded, setTextLoaded] = useState(false);
 
   function handleWin() {
     console.log("you win");
