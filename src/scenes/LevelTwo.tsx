@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
 export default function LevelTwo() {
-  //   const [mousePositionX, setMousePositionX] = useState<number>(0);
-  const [originX, setOriginX] = useState<number>(0);
+  const [offsetX, setOffsetX] = useState<number>(0);
+  //   the left offset from parent div of the draggerContainer
   const [isDown, setIsDown] = useState(false);
+  //   if the mouse is held down
   const [draggerPositionX, setDraggerPositionX] = useState<number>();
-  const [textLoaded, setTextLoaded] = useState(false);
+  //   The "left" postition of the draggerContainer
+  const [won, setWon] = useState(false);
 
   function handleWin() {
-    console.log("you win");
+    setWon(true);
   }
 
   const draggerContainer: HTMLElement | null =
@@ -21,14 +23,21 @@ export default function LevelTwo() {
       onMouseLeave={() => setIsDown(false)}
       onMouseMoveCapture={(e) => {
         if (isDown) {
-          setDraggerPositionX(originX + e.clientX);
+          setDraggerPositionX(offsetX + e.clientX);
+          // if the mouse is down, will set the "left" position of the dragger,
+          //   based on the offsetLeft of the draggerContainer when the mouse went down
+          // plus the mouse position
+          if (offsetX + e.clientX < 0) {
+            setDraggerPositionX(0);
+          }
+          //   prevents the dragger from being dragged out of the left of the container
         }
       }}
     >
       <div className="top">
         <h2 className="title first">So you can spell...</h2>
         <h2 className="title second">For your second test...</h2>
-        <h2 className="title third">Find the key...</h2>
+        <h2 className="title third">Can You Find the key...</h2>
       </div>
       <div className="bottom">
         <div className="track">
@@ -47,8 +56,11 @@ export default function LevelTwo() {
           <div
             onMouseDown={(e) => {
               setIsDown(true);
-              setOriginX(draggerContainer!.offsetLeft - e.clientX);
-              console.log("mouse is clicked and originx is" + originX);
+              const nullChecker =
+                draggerContainer !== null &&
+                setOffsetX(draggerContainer.offsetLeft - e.clientX);
+              // checks if the draggerContainer exists then will set the "left" offset
+              // of the draggerContainer
             }}
             className="draggerContainer"
             style={{ left: draggerPositionX }}
@@ -57,6 +69,7 @@ export default function LevelTwo() {
           </div>
         </div>
       </div>
+      {won && <div className="winScreen">WOW</div>}
     </div>
   );
 }

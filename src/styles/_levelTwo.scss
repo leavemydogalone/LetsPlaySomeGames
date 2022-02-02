@@ -51,18 +51,22 @@
       }
       .draggerContainer {
         position: relative;
+        width: fit-content;
         .dragger {
           height: 50px;
           width: 50px;
-          background: grey;
+
           display: flex;
           justify-content: center;
           align-items: center;
           &::before {
             display: block;
             content: "";
-            height: 80%;
-            width: 80%;
+            height: 100%;
+            width: 100%;
+            background: #a8a3a3f7;
+            outline: 5px solid #a49b9b;
+            outline-offset: -5px;
           }
         }
       }
