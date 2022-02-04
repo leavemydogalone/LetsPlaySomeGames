@@ -69,7 +69,14 @@ export default function LevelTwo() {
           </div>
         </div>
       </div>
-      {won && <div className="winScreen">WOW</div>}
+      {won && (
+        <div className="winScreen">
+          <div className="diagonalBar">
+            <span className="wow">...........</span>
+            <span className="wow secondLine">YOU HAVE BESTED ME AGAIN</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
