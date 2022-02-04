@@ -37,7 +37,7 @@ export default function LevelTwo() {
       <div className="top">
         <h2 className="title first">So you can spell...</h2>
         <h2 className="title second">For your second test...</h2>
-        <h2 className="title third">Can You Find the key...</h2>
+        <h2 className="title third">Can you find the key...</h2>
       </div>
       <div className="bottom">
         <div className="track">
@@ -72,7 +72,7 @@ export default function LevelTwo() {
       {won && (
         <div className="winScreen">
           <div className="diagonalBar">
-            <span className="wow">...........</span>
+            <span className="wow ">...........</span>
             <span className="wow secondLine">YOU HAVE BESTED ME AGAIN</span>
           </div>
         </div>
