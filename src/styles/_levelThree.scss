@@ -1,0 +1,25 @@
+@use "variables" as v;
+
+.levelThree {
+  height: 100%;
+  .flexContainer {
+    height: 100%;
+    position: relative;
+  }
+  .spinBar {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 50%;
+    height: 40px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: grey;
+    .thingContainer {
+      padding: 5px;
+      font-size: 20px;
+    }
+  }
+}

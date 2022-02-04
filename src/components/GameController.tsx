@@ -3,6 +3,7 @@ import MainMenu from "../scenes/MainMenu";
 import LevelSelect from "../scenes/LevelSelect";
 import LevelOne from "../scenes/LevelOne";
 import LevelTwo from "../scenes/LevelTwo";
+import LevelThree from "../scenes/LevelThree";
 import { Scene } from "../ts/enums";
 
 type Props = {
@@ -10,8 +11,8 @@ type Props = {
 };
 
 export default function GameController({ setBottomNavText }: Props) {
-  const [scene, setScene] = useState<Scene>(Scene.Two);
-  const [sceneComponent, setSceneComponent] = useState(<LevelTwo />);
+  const [scene, setScene] = useState<Scene>(Scene.Three);
+  const [sceneComponent, setSceneComponent] = useState(<LevelThree />);
 
   // updates state of sceneComponent with a new level/scene component
   // based on the scene that is set either through the main menu, level select,
@@ -30,6 +31,9 @@ export default function GameController({ setBottomNavText }: Props) {
           break;
         case "Two":
           setSceneComponent(<LevelTwo />);
+          break;
+        case "Three":
+          setSceneComponent(<LevelThree />);
           break;
         default:
           break;
