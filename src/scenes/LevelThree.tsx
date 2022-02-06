@@ -7,7 +7,7 @@ export default function LevelThree() {
   const spinBars = standInString
     .split("")
     .map((letter: string, index: number) => (
-      <SpinBar degrees={index * 30} letter={letter} />
+      <SpinBar degrees={index * 30} letter={letter} key={index} />
     ));
 
   return (
