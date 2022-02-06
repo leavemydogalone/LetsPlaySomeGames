@@ -3,23 +3,25 @@ import React, { useState } from "react";
 type Props = {
   degrees: number;
   letter?: string;
+  handleWin: () => void;
+  delay: number;
 };
 
-export default function SpinBar({ degrees, letter }: Props) {
+export default function SpinBar({ degrees, letter, handleWin, delay }: Props) {
   const handleClick = () => {
     if (!letter) handleWin();
   };
 
-  const handleWin = () => {
-    console.log("you win");
+  const style = {
+    transform: `rotate(${degrees}deg) translate(-50%, -50%)`,
+    animationDelay: `${delay}ms`,
   };
-
-  const style = { transform: `rotate(${degrees}deg) translate(-50%, -50%)` };
   return (
     <div className="spinBar" style={style}>
       <span className="thingContainer" onClick={handleClick}>
         {letter || (
           <svg
+            className="keySVG"
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
             viewBox="0 0 24 24"

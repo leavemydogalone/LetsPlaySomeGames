@@ -1,5 +1,24 @@
 @use "variables" as v;
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    color: black;
+  }
+  25% {
+    opacity: 1;
+    color: blue;
+  }
+  75% {
+    opacity: 1;
+    color: blue;
+  }
+  100% {
+    color: black;
+    opacity: 1;
+  }
+}
+
 .levelThree {
   height: 100%;
   .flexContainer {
@@ -17,10 +36,16 @@
     justify-content: flex-start;
     align-items: center;
     background: grey;
+    animation: fadeIn 1s forwards ease-in-out;
+    opacity: 0;
     .thingContainer {
       padding: 5px 8px;
       font-size: 38px;
       font-family: Odinson, serif;
+      .keySVG {
+        filter: invert(84%) sepia(20%) saturate(2971%) hue-rotate(358deg)
+          brightness(106%) contrast(105%);
+      }
     }
   }
 }

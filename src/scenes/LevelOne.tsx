@@ -22,7 +22,6 @@ export default function LevelOne({ setScene }: Props) {
 
   useEffect(() => {
     const timeVariable = 1;
-    // change back to 100
     // this will determine how slowly the letters of the script will be added to the letters state
     // and how quickly they will render
 
