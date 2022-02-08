@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import LetterBox from "../components/LetterBox";
+import LetterDisplay from "../components/LetterDisplay";
 import { NameCtx, NameContextInterface } from "../App";
 import { Scene } from "../ts/enums";
 
