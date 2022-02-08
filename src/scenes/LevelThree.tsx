@@ -3,7 +3,7 @@ import SpinBar from "../components/SpinBar";
 
 export default function LevelThree() {
   const [start, setStart] = useState(false);
-  const standInString = "kykldashiys";
+  const standInString = ["ky", "kl", "da", "sh", "iy", "s"];
 
   useEffect(() => {
     const startSpin = setTimeout(() => {
@@ -15,23 +15,20 @@ export default function LevelThree() {
     console.log("you win");
   };
 
-  const spinBars = standInString
-    .split("")
-    .map((letter: string, index: number) => (
-      <SpinBar
-        degrees={index * 30}
-        letter={letter}
-        key={index}
-        handleWin={handleWin}
-        delay={index * 300}
-      />
-    ));
+  const spinBars = standInString.map((letter: string, index: number) => (
+    <SpinBar
+      degrees={index * 30}
+      letter={letter}
+      key={index}
+      handleWin={handleWin}
+      delay={index * 400}
+    />
+  ));
 
   return (
     <div className="levelThree">
       <div className="flexContainer">
-        {spinBars}
-        <SpinBar degrees={330} handleWin={handleWin} delay={3300} />
+        <div className="spinContainer">{spinBars}</div>
       </div>
     </div>
   );
