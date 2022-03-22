@@ -22,7 +22,7 @@ export default function LevelOne({ setScene }: Props) {
     "Welcome. I know that you are eager to begin, but first I will need your name.";
 
   useEffect(() => {
-    const timeVariable = 1;
+    const timeVariable = 150;
     // this will determine how slowly the letters of the script will be added to the letters state
     // and how quickly they will render
 

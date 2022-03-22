@@ -2,14 +2,21 @@ import React, { useState } from "react";
 
 type Props = {
   degrees: number;
-  letter: string;
+  letters: string;
   handleWin: () => void;
   delay: number;
+  clickable: boolean;
 };
 
-export default function SpinBar({ degrees, letter, handleWin, delay }: Props) {
+export default function SpinBar({
+  degrees,
+  letters,
+  handleWin,
+  delay,
+  clickable,
+}: Props) {
   const handleClick = () => {
-    if (!letter[1]) handleWin();
+    if (!letters[1] && clickable) handleWin();
   };
 
   const style = {
@@ -19,17 +26,17 @@ export default function SpinBar({ degrees, letter, handleWin, delay }: Props) {
 
   return (
     <div className="spinBar" style={style}>
-      <span className="thingContainer">{letter[0]}</span>
+      <span className="thingContainer">{letters[0]}</span>
 
       <span className="thingContainer" onClick={handleClick}>
-        {letter[1] || (
+        {letters[1] || (
           <svg
             className="keySVG"
             xmlns="http://www.w3.org/2000/svg"
             height="38px"
             viewBox="0 0 24 24"
             width="38px"
-            fill="#938303"
+            fill={clickable ? "#938303" : "#7e7e7e"}
             style={{ display: "grid" }}
           >
             <path d="M0 0h24v24H0V0z" fill="none" />

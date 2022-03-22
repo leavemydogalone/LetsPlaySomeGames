@@ -5,3 +5,11 @@ export enum Scene {
   Two = "Two",
   Three = "Three",
 }
+
+export enum Speeds {
+  Fast = "spinFast",
+  LessFast = "spinLessFast",
+  EvenLessFast = "spinEvenLessFast",
+  Slow = "spinSlow",
+  Stop = "",
+}

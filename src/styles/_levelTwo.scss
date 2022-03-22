@@ -103,36 +103,4 @@
       }
     }
   }
-  .winScreen {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    background: #151515d5;
-    .diagonalBar {
-      width: 100%;
-      transform: rotate(15deg);
-      .wow {
-        opacity: 0;
-        text-align: center;
-        display: block;
-        font-size: 60px;
-        font-weight: bold;
-        transform-style: preserve-3d;
-        animation: diagonal 4000ms forwards;
-        color: white;
-        max-width: 50%;
-        margin: auto;
-      }
-      .secondLine {
-        animation-delay: 4000ms;
-        margin-top: 30px;
-      }
-    }
-  }
 }
