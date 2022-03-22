@@ -19,10 +19,11 @@ export default function LevelOne({ setScene }: Props) {
   // will spawn render the input box when true
 
   const scriptString =
-    "Welcome. I know that you are eager to begin, but first I will need your name.";
+    "Welcome. I know that you are eager to begin, but first I will need your name. Four letters only..";
 
   useEffect(() => {
     const timeVariable = 150;
+
     // this will determine how slowly the letters of the script will be added to the letters state
     // and how quickly they will render
 
