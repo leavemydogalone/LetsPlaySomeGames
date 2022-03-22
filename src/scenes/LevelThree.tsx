@@ -52,13 +52,22 @@ export default function LevelThree() {
         <div className="winScreen">
           <div className="diagonalBar">
             <span className="wow ">...........</span>
-            <span className="wow secondLine">
-              IT SEEMS YOU ARE GREATER THAN I COULD HAVE EVER IMAGINED
+            <span className="wow secondLine">THAT WAS AN EASY ONE</span>
+            <span className="wow thirdLine">
+              YOU HAVE WON FOR NOW... NEXT TIME WILL NOT BE SO EASY
             </span>
-            <span className="wow thirdLine">YOU HAVE WON... FOR NOW</span>
           </div>
         </div>
       )}
+      <div className="textBox">
+        <div className="inner firsty">Looks like its another key test...</div>
+        <div className="inner secondy">Its going a little fast...</div>
+        <div className="inner thirdy">Should I slow it down more...</div>
+        <div className="inner fourthy">
+          Okay but this is as slow as it goes...
+        </div>
+        <div className="inner fifthy">This is just getting embarassing...</div>
+      </div>
     </div>
   );
 }
