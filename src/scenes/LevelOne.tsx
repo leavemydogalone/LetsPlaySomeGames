@@ -22,7 +22,7 @@ export default function LevelOne({ setScene }: Props) {
     "Welcome. I know that you are eager to begin, but first I will need your name. Four letters only.";
 
   useEffect(() => {
-    const timeVariable = 170;
+    const timeVariable = 100;
 
     // this will determine how slowly the letters of the script will be added to the letters state
     // and how quickly they will render
@@ -37,7 +37,7 @@ export default function LevelOne({ setScene }: Props) {
 
     setTimeout(() => {
       setInputtable(true);
-    }, scriptString.length * (timeVariable + 40));
+    }, scriptString.length * (timeVariable + 10));
     // this will spawn the input box after all of the script has been added multiplied by the delay
   }, []);
 
