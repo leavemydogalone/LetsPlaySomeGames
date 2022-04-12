@@ -89,7 +89,7 @@ export default function LevelTwo({ setScene }: Props) {
         {won && (
           <div className="winScreen">
             <div className="diagonalBar">
-              <span className="wow ">...........</span>
+              <span className="wow ">..........</span>
               <span className="wow secondLine">YOU HAVE BESTED ME</span>
             </div>
           </div>
