@@ -1,6 +1,6 @@
 Lets Play A Game
 
-[Link to Project website](https://lets-play-some-games.herokuapp.com/)
+[Link to Project website](https://lets-play-some-games.vercel.app/)
 
 Complete the three "levels" that currently make up the entirety of the game(I will be adding more when I come across some new interactions I want to practice). Follow the instructions given to you and interact with the DOM elements to progress.
 
